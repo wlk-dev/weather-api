@@ -1,7 +1,7 @@
 # Weather API
 
 ## Description
-This is a simple web-app used to interact with the openweatherapi.
+This is a simple web-app used to interact with the openweatherapi, it utilizes jQuery, moment.js, and bootstrap.
 
 ## Installation
 
