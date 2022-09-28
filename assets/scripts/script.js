@@ -4,7 +4,6 @@ const apiKey = "a54d11b385002d4024b8cb4bebdb0e83"
 function formatResults ( data ) {
     let currentDate = moment();
     let days = [];
-    console.log(data)
     data.list.forEach( (tsObj) => {
         let date = moment.unix(tsObj.dt);
         if( !currentDate.isSame(date, "day") && days.length < 6 ) 
@@ -32,7 +31,6 @@ function getForecast (cityName) {
 
 function getHistory() {
     return JSON.parse(localStorage.getItem("forecast-history")) || [];
-
 }
 
 function createCard( parentElem, data ) {
