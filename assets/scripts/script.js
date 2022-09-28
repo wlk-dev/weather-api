@@ -36,11 +36,11 @@ function getHistory() {
 
 
 function createCard( parentElem, data, cityName ) {
-    let date = $("<h4>").text( String(`${data.dt_txt} ${cityName}`) )
+    let date = $("<h4>").text( `${data.dt_txt} ${cityName}` )
     let icon = $("<img alt='weather icon' src='' width='50' height='50'>").attr('src', "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png")
-    let temp = $("<p>").text( String(`Temp : ${data.main.temp} °F`) )
-    let wind = $("<p>").text( String(`Wind Speed : ${data.wind.speed} MPH`) )
-    let humidity = $("<p>").text( String(`Humidity : ${data.main.humidity} %`) )
+    let temp = $("<p>").text( `Temp : ${data.main.temp} °F` )
+    let wind = $("<p>").text( `Wind Speed : ${data.wind.speed} MPH` )
+    let humidity = $("<p>").text( `Humidity : ${data.main.humidity} %` )
     parentElem.append(date, icon, temp, wind, humidity)
 }
 
