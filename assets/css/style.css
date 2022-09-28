@@ -1,0 +1,16 @@
+.my-mg { 
+    margin: -4px;
+}
+
+/* .main-col {
+    border: 1px solid black;
+} */
+
+.card { 
+    border: 1px solid black;
+    min-height: 200px;
+}
+
+ul {
+    margin-top: 2%;
+}
