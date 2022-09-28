@@ -73,6 +73,12 @@ $("#previous-searches").on("click", ".history-obj", function () {
     getForecast(city)
 })
 
+$("#clear-btn").click( function () {
+    localStorage.setItem("forecast-history", JSON.stringify([]))
+    showHistory( [] )
+
+} )
+
 $("#search-btn").click( function () {
     let city = $("#city-input").val()
     showHistory( manageHistory( city ) )
