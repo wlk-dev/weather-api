@@ -52,7 +52,7 @@ function showForecasts ( data ) {
 
 function manageHistory( city=false ) {
     let history = getHistory();
-    if (city) {
+    if (city && !history.includes(city)) {
         history.push(city)
         localStorage.setItem("forecast-history", JSON.stringify(history))
     }
