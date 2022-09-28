@@ -24,6 +24,7 @@ function getForecast (cityName) {
     fetch( baseURL + "/data/2.5/forecast?" + new URLSearchParams({q: cityName,appid: apiKey, units : "imperial"} ) )
         .then( (response) => response.json() )
         .then( (data) => {
+            console.log(data)
             let res = formatResults( data )
             showForecasts(res)
         })
@@ -35,7 +36,7 @@ function getHistory() {
 
 function createCard( parentElem, data ) {
     let date = $("<h4>").text( data.dt_txt )
-    let icon = $("<img alt='weather icon' src='' width='50' height='50'>").attr('src', "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png")
+    let icon = $("<img alt='weather icon' src='' width='50' height='50'>").attr('src', "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png")
     let temp = $("<p>").text( String(`Temp : ${data.main.temp} °F`) )
     let wind = $("<p>").text( String(`Wind Speed : ${data.wind.speed} MPH`) )
     let humidity = $("<p>").text( String(`Humidity : ${data.main.humidity} %`) )

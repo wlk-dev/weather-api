@@ -7,7 +7,10 @@
 } */
 
 .card { 
-    border: 1px solid black;
+    border: 1px solid whitesmoke;
+    border-radius: 0;
+    background-color: black;
+    color: whitesmoke;
     min-height: 200px;
 }
 
