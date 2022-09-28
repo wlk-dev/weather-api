@@ -26,7 +26,7 @@ function getForecast (cityName) {
         .then( (data) => {
             console.log(data)
             let res = formatResults( data )
-            showForecasts(res)
+            showForecasts(res, cityName)
         })
     }
 
@@ -34,8 +34,9 @@ function getHistory() {
     return JSON.parse(localStorage.getItem("forecast-history")) || [];
 }
 
-function createCard( parentElem, data ) {
-    let date = $("<h4>").text( data.dt_txt )
+
+function createCard( parentElem, data, cityName ) {
+    let date = $("<h4>").text( String(`${data.dt_txt} ${cityName}`) )
     let icon = $("<img alt='weather icon' src='' width='50' height='50'>").attr('src', "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png")
     let temp = $("<p>").text( String(`Temp : ${data.main.temp} °F`) )
     let wind = $("<p>").text( String(`Wind Speed : ${data.wind.speed} MPH`) )
@@ -43,10 +44,10 @@ function createCard( parentElem, data ) {
     parentElem.append(date, icon, temp, wind, humidity)
 }
 
-function showForecasts ( data ) {
+function showForecasts ( data, cityName ) {
      let elements = $("#forecasts").children();
      for ( var i = 0; i < 6; i++ ) {
-        createCard( $(elements[i]).empty(), data[i] )
+        createCard( $(elements[i]).empty(), data[i], i === 0 ?  "| " + cityName : "" )
      }
 }
 
